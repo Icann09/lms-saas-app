@@ -1,7 +1,13 @@
+import CompanionsForm from "@/components/CompanionsForm";
 
 
 export default function page() {
   return (
-    <div>Companions</div>
+    <main>
+      <article>
+        <h1>Companion Builder</h1>
+        <CompanionsForm />
+      </article>
+    </main>
   )
 }
