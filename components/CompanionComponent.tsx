@@ -52,12 +52,12 @@ export default function CompanionComponent({ companionId, userImage, userName, s
     vapi.on("speech-end", onSpeechEnd);
 
     return () => {
-    vapi.off("call-start", onCallStart);
-    vapi.off("call-end", onCallEnd);
-    vapi.off("message", onMessage);
-    vapi.off("error", onError);
-    vapi.off("speech-start", onSpeechStart);
-    vapi.off("speech-end", onSpeechEnd);
+      vapi.off("call-start", onCallStart);
+      vapi.off("call-end", onCallEnd);
+      vapi.off("message", onMessage);
+      vapi.off("error", onError);
+      vapi.off("speech-start", onSpeechStart);
+      vapi.off("speech-end", onSpeechEnd);
     }
 
   }, []);
