@@ -68,7 +68,7 @@ export default function CompanionComponent({ companionId, userImage, userName, s
     setIsMuted(!isMuted); 
   };
   
-  const handleDisconect = () => {
+  const handleCall = () => {
     setCallStatus(CallStatus.CONNECTING);
     const assistentOverrides = {
       variableValues: { subject, topic, style },
@@ -79,7 +79,7 @@ export default function CompanionComponent({ companionId, userImage, userName, s
     vapi.start(configureAssistant(voice, style), assistentOverrides)
   };
 
-  const handleCall = () => {
+  const handleDisconect = () => {
     setCallStatus(CallStatus.FINISHED);
     vapi.stop();
   };
