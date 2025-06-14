@@ -19,7 +19,7 @@ interface Props {
 export default function CompanionsList({ title, companions, className }: Props) {
   return (
     <article className={cn("companion-list", className)}>
-      <h2 className="font-bold text-3xl">Recent Session</h2>
+      <h2 className="font-bold text-3xl">{title}</h2>
       <Table>
         <TableHeader>
           <TableRow>
