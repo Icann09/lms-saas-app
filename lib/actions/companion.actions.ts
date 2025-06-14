@@ -102,3 +102,27 @@ export const getUserCompanions = async (userId: string) => {
   if(error) throw new Error(error.message);
   return data;
 }
+
+export const newCompanionPermissions = async () => {
+  const { userId, has } = await auth(); // no need to await unless you're in edge environment
+  const supabase = createSupabaseClient(); // no need to await
+
+  let limit = 0;
+
+  if (has({ plan: "Premium" })) {
+    limit = 100;
+  } else if (has({ feature: "10_actives_companion" })) {
+    limit = 10;
+  } else if (has({ feature: "3_actives_companion" })) {
+    limit = 3;
+  }
+
+  const { count, error } = await supabase
+    .from("companions")
+    .select("*", { count: "exact", head: true })
+    .eq("author", userId);
+
+  if (error) throw new Error(error.message);
+
+  return (count ?? 0) < limit;
+};
