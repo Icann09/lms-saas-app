@@ -24,7 +24,7 @@ export default async function page({ searchParams }: SearchParams) {
       </section>
       <section className="companions-grid">
         {companions.map((companion) => (
-          <CompanionsCard key={companion.id} { ...companion} color={getSubjectColor(companion.sbject)}/>
+          <CompanionsCard key={companion.id} { ...companion} color={getSubjectColor(companion.subject)}/>
         ))}
       </section>
     </main>
